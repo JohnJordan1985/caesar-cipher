@@ -87,7 +87,7 @@
 
 		function getNumericalValueOfLetterOffsetted(letterToCheck) {
 			let index = alphabetUpperCase.findIndex(function(eachLetter){
-				return eachLetter === letterToCheck
+				return eachLetter === letterToCheck;
 			});
 			index++; // Need to offset numerical index value of 1, to avoid multiplication by 0
 			return index;
@@ -95,14 +95,20 @@
 
 		function updateRelevantOutputElement(numericalIndexOffsetted, newValue){
 			document.getElementById("output_char_" + numericalIndexOffsetted).value = newValue;
+		}
 
+		function getEncryptedCharacterValue(plainTextCharacterOffsetted) {
+			// Since starting at 1 and ending at 26 for user input, but zero-indexed in alphabet array, ending at 25
+			let encryptedIndexValueNotOffset = (parseInt(plainTextCharacterOffsetted)*12)%27;
+			console.log("encryptedIndexValueNotOffset: ", encryptedIndexValueNotOffset);
+			encryptedIndexValueNotOffset--; // To map back to zero-indexed alphabet arrays, except where value is 0
+			return alphabetUpperCase[encryptedIndexValueNotOffset];
 		}
 
 		document.getElementById('encrypt_button').addEventListener("click", function(){
 			let listOfUserInputs = getNewListOfUserInputs();
-			getNumericalValueOfLetterOffsetted(listOfUserInputs[0]);
 			console.log("value is: ", getNumericalValueOfLetterOffsetted(listOfUserInputs[0]));
-			updateRelevantOutputElement(1, listOfUserInputs[0]);
+			updateRelevantOutputElement(1, getEncryptedCharacterValue(getNumericalValueOfLetterOffsetted(listOfUserInputs[0])));
 		});
 
 
