@@ -60,7 +60,7 @@
 		</section>
 		<section id="output_section">
 			<div class="output-group">
-				<output name="result" form="input_form" for="user_char_1" id="output_char_0">D</output>
+				<output name="result" form="input_form" for="user_char_1" id="output_char_1">D</output>
 			</div>
 		</section>
 	</main>
@@ -85,8 +85,24 @@
 			return userInputList;
 		}
 
+		function getNumericalValueOfLetterOffsetted(letterToCheck) {
+			let index = alphabetUpperCase.findIndex(function(eachLetter){
+				return eachLetter === letterToCheck
+			});
+			index++; // Need to offset numerical index value of 1, to avoid multiplication by 0
+			return index;
+		}
+
+		function updateRelevantOutputElement(numericalIndexOffsetted, newValue){
+			document.getElementById("output_char_" + numericalIndexOffsetted).value = newValue;
+
+		}
+
 		document.getElementById('encrypt_button').addEventListener("click", function(){
-			getNewListOfUserInputs();
+			let listOfUserInputs = getNewListOfUserInputs();
+			getNumericalValueOfLetterOffsetted(listOfUserInputs[0]);
+			console.log("value is: ", getNumericalValueOfLetterOffsetted(listOfUserInputs[0]));
+			updateRelevantOutputElement(1, listOfUserInputs[0]);
 		});
 
 
