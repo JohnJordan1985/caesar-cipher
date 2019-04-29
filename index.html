@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
 		fieldset {
 			display: inline-block;
+			margin: 0;
+			padding-left: 13px; /* Has 2px border */
 		}
-		input {
+		input, output {
 			width: 15px;
+			height: 15px;
+			font-size: 16px;
+			padding: 1px 0px;
+			border: 2px solid threedface;
 			text-align: center;
+		}
+
+		.output-group {
+			display: inline-block;
+			border: 2px solid threedface;
+			padding-left: 13px;
+			padding-bottom: 8.125px;
+			padding-top: 4.55px;
+			padding-right: 9.75px; /* From browser user agent */
 		}
 	</style>
 <head>
@@ -19,10 +37,10 @@
 	</header>
 	<main>
 		<section id="input_section">
-			<form action="">
+			<form id="input_form" action="">
 				<fieldset>
 					<legend>Enter your message – to <em>encode</em> or <em>decode</em> here:</legend>
-					<input type="text" maxlength="1">
+					<input id="char_1" type="text" maxlength="1">
 				</fieldset>
 
 				<button id="encrypt_button" type="button">Encypher</button>
@@ -30,10 +48,14 @@
 			</form>
 		</section>
 		<section id="output_section">
-
+			<div class="output-group">
+				<output name="result" form="input_form" for="char_1">D</output>
+			</div>
 		</section>
-
 	</main>
 	<footer></footer>
+	<script>
+
+	</script>
 </body>
 </html>
