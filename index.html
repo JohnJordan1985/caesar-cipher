@@ -18,6 +18,11 @@
 			text-align: center;
 		}
 
+		input[type='number']{
+			height: auto;
+			width: auto;
+		}
+
 		.output-group {
 			display: inline-block;
 			border: 2px solid threedface;
@@ -38,23 +43,52 @@
 	<main>
 		<section id="input_section">
 			<form id="input_form" action="">
-				<fieldset>
+				<fieldset id="user_input_message">
 					<legend>Enter your message – to <em>encode</em> or <em>decode</em> here:</legend>
-					<input id="char_1" type="text" maxlength="1">
+					<input id="user_char_1" type="text" maxlength="1">
 				</fieldset>
-
+				<fieldset>
+					<legend>Select your cipher key, and modulus here:</legend>
+					<label for="user_cipher_key">Cipher Key: </label>
+					<input id="user_cipher_key" type="number" name="cipher-key" min="1" max="99">
+					<label for="User_cipher_modulus">Cipher Modulus: </label>
+					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99">
+				</fieldset>
 				<button id="encrypt_button" type="button">Encypher</button>
 				<button id="decode_button" type="button">Decode</button>
 			</form>
 		</section>
 		<section id="output_section">
 			<div class="output-group">
-				<output name="result" form="input_form" for="char_1">D</output>
+				<output name="result" form="input_form" for="user_char_1" id="output_char_0">D</output>
 			</div>
 		</section>
 	</main>
 	<footer></footer>
 	<script>
+		let alphabetLowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+		let alphabetUpperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+		let userInputMessageFieldset = document.getElementById("user_input_message");
+		function updateListWithNewUserInput (listToFill) {
+			let inputElementsCollection = userInputMessageFieldset.children;
+			let length = inputElementsCollection.length;
+			for(let i = 1; i < length; i++){ // First child of fieldset is a legend, so skip over it
+				listToFill[i] = inputElementsCollection[i].value;
+			}
+		}
+
+		function getNewListOfUserInputs() {
+			let userInputList = [];
+			updateListWithNewUserInput(userInputList);
+			userInputList.shift(); // To remove legend value from list, as not valid
+			console.log("User input is: ", userInputList);
+			return userInputList;
+		}
+
+		document.getElementById('encrypt_button').addEventListener("click", function(){
+			getNewListOfUserInputs();
+		});
+
 
 	</script>
 </body>
