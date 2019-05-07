@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 	<style>
+		html, body {
+			height: 100%;
+		}
 		body {
 			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		main {
+			height: 300px;
+		}
+		section {
+			display: table;
+			    margin: auto;
+		}
+		form {
+			display: table-cell;
+			vertical-align: middle;
+			height: 150px;
 		}
 		fieldset {
-			display: inline-block;
+			display: block;
 			margin: 0;
 			padding-left: 13px; /* Has 2px border */
 		}
@@ -59,9 +75,10 @@
 			</form>
 		</section>
 		<section id="output_section">
-			<div class="output-group">
-				<output name="result" form="input_form" for="user_char_1" id="output_char_1">D</output>
-			</div>
+			<fieldset class="output-group">
+				<legend>Your encrypted message: </legend>
+				<output name="result" form="input_form" for="user_char_1" id="output_char_1"> </output>
+			</fieldset>
 		</section>
 	</main>
 	<footer></footer>
