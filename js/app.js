@@ -42,5 +42,3 @@ document.getElementById('encrypt_button').addEventListener("click", function(){
 	$outputChar1.val(encryptedCharValue);
 
 });
-
-
