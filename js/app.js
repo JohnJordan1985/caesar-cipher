@@ -28,6 +28,10 @@ function updateRelevantOutputElement(numericalIndexOffsetted, newValue){
 function getEncryptedCharacterValue(plainTextCharArg) {
 	let plainTextChar = plainTextCharArg.toString().toUpperCase();
 	console.log('plainTextChar is: ', plainTextChar);
+	let plainTextCharValue = alphabetUpperCase.findIndex(function(element){
+		return element === plainTextChar;
+	});
+	console.log('plainTextChar VALUE is: ', plainTextCharValue);
 	let numericalValuePlainTextChar = getNumericalValueOfLetter(plainTextChar);
 	let encryptedIndexValueNotOffset = (numericalValuePlainTextChar*2)%27;
 	console.log("encryptedIndexValueNotOffset: ", encryptedIndexValueNotOffset);
