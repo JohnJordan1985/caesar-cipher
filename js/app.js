@@ -38,11 +38,14 @@ function getEncryptedCharacterValue(plainTextCharArg) {
 	return alphabetUpperCase[encryptedIndexValueNotOffset];
 }
 
-document.getElementById('encrypt_button').addEventListener("click", function(){
+function runCipher() {
 	let listOfUserInputs = getNewListOfUserInputs();
 	console.log("value is: ", getNumericalValueOfLetter(listOfUserInputs[0]));
 	let encryptedCharValue = getEncryptedCharacterValue(listOfUserInputs[0]);
 	console.log('encryptedCharValue: ', encryptedCharValue);
 	$outputChar1.val(encryptedCharValue);
+}
 
+$('#encrypt_button').click(() => {
+	runCipher();
 });
