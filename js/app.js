@@ -69,6 +69,29 @@ function getCoPrimes(modulus) {
 	return coPrimes;
 }
 
+
+
+function addEncryptionKeysDOM(listOfCoPrimes) {
+	let docFrag = document.createDocumentFragment();
+	let inputElem, labelInputElem;
+	let inputElemID = "encrypt_key_";
+
+	$.each(listOfCoPrimes, (index, number) => {
+		inputElem = $("<input type='radio' />");
+		inputElem.attr("id", inputElemID + number);
+		inputElem.val(number);
+		inputElem.attr("name", "encrypt-key");
+		labelInputElem = $("<label for='" + inputElemID + number + "' >" + number + "</label>");
+		docFrag.append(inputElem.get(0));
+		docFrag.append(labelInputElem.get(0));
+	});
+	docFrag.firstChild.checked = true;
+	$("#encrypt_key_list").append(docFrag);
+}
+
+
+addEncryptionKeysDOM(getCoPrimes(27));
+
 console.log(getGCD(3,10));
 console.log(getGCD(3,9));
 console.log(getCoPrimes(27));
