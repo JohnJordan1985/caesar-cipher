@@ -15,17 +15,16 @@ function getNewListOfUserInputs() {
 function getNumericalValueOfLetter(passedInLetterToCheck) {
 	var letterToCheck = passedInLetterToCheck.toString().toUpperCase();
 	console.log("Letter to check: ", letterToCheck);
-	let indexOfLetterToCheck = alphabetUpperCase.findIndex(function(eachLetter){
+	return alphabetUpperCase.findIndex(function(eachLetter){
 		return eachLetter === letterToCheck;
 	});
-	return indexOfLetterToCheck;
 }
 
 function updateRelevantOutputElement(numericalIndexOffsetted, newValue){
 	document.getElementById("output_char_" + numericalIndexOffsetted).value = newValue;
 }
 
-function getEncryptedCharacterValue(plainTextCharArg) {
+function getEncryptedCharacterValue(plainTextCharArg, userEncryptionKey) {
 	let plainTextChar = plainTextCharArg.toString().toUpperCase();
 	console.log('plainTextChar is: ', plainTextChar);
 	let plainTextCharValue = alphabetUpperCase.findIndex(function(element){
@@ -33,15 +32,15 @@ function getEncryptedCharacterValue(plainTextCharArg) {
 	});
 	console.log('plainTextChar VALUE is: ', plainTextCharValue);
 	let numericalValuePlainTextChar = getNumericalValueOfLetter(plainTextChar);
-	let encryptedIndexValueNotOffset = (numericalValuePlainTextChar*2)%27;
+	let encryptedIndexValueNotOffset = (numericalValuePlainTextChar*userEncryptionKey)%27;
 	console.log("encryptedIndexValueNotOffset: ", encryptedIndexValueNotOffset);
 	return alphabetUpperCase[encryptedIndexValueNotOffset];
 }
 
-function runCipher() {
+function runCipher(userEncryptionKey) {
 	let listOfUserInputs = getNewListOfUserInputs();
 	console.log("value is: ", getNumericalValueOfLetter(listOfUserInputs[0]));
-	let encryptedCharValue = getEncryptedCharacterValue(listOfUserInputs[0]);
+	let encryptedCharValue = getEncryptedCharacterValue(listOfUserInputs[0], userEncryptionKey); // Need to pass in user selected key
 	console.log('encryptedCharValue: ', encryptedCharValue);
 	$outputChar1.val(encryptedCharValue);
 }
@@ -69,24 +68,24 @@ function getCoPrimes(modulus) {
 	return coPrimes;
 }
 
+function decorateDocFrag(docFrag, listOfCoPrimes, inputElemID = 'encrypt_key_') {
+	let inputElem, labelInputElem;
+	$.each(listOfCoPrimes, (i, number) => {
+		inputElem = $("<input id='" + inputElemID + number + "' type='radio' value='" + number + "' name='encrypt-key' />"), labelInputElem = $("<label for='" + inputElemID + number + "' >" + number + "</label>");
+		docFrag.append(inputElem.get(0),labelInputElem.get(0));
+	});
+}
 
 
 function addEncryptionKeysDOM(listOfCoPrimes) {
 	let docFrag = document.createDocumentFragment();
-	let inputElem, labelInputElem;
-	let inputElemID = "encrypt_key_";
-
-	$.each(listOfCoPrimes, (index, number) => {
-		inputElem = $("<input type='radio' />");
-		inputElem.attr("id", inputElemID + number);
-		inputElem.val(number);
-		inputElem.attr("name", "encrypt-key");
-		labelInputElem = $("<label for='" + inputElemID + number + "' >" + number + "</label>");
-		docFrag.append(inputElem.get(0));
-		docFrag.append(labelInputElem.get(0));
-	});
+	decorateDocFrag(docFrag, listOfCoPrimes);
 	docFrag.firstChild.checked = true;
 	$("#encrypt_key_list").append(docFrag);
+}
+
+function getUserEncryptionKey(){
+	return $("#encrypt_key_list input[name='encrypt-key']:checked").val();
 }
 
 
@@ -97,5 +96,7 @@ console.log(getGCD(3,9));
 console.log(getCoPrimes(27));
 
 $('#encrypt_button').click(() => {
-	runCipher();
+	let userEncryptionKey = getUserEncryptionKey();
+	runCipher(userEncryptionKey);
+
 });
