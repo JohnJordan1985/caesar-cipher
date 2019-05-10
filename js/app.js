@@ -46,6 +46,30 @@ function runCipher() {
 	$outputChar1.val(encryptedCharValue);
 }
 
+function getGCD(a, b) {
+	let t;
+    while(b != 0){
+        t = a;
+        a = b;
+        b = t%b;
+    }
+    return a;
+}
+
+function getCoPrimes(modulus) {
+	let numbers = Array.apply(null, {length: modulus}).map(Number.call, Number)
+	console.log("Numbers are:", numbers);
+	let coPrimes = numbers.filter(number => {
+		return getGCD(number, modulus) === 1;
+	});
+	console.log("coPrimes are: ", coPrimes);
+	return coPrimes;
+}
+
+console.log(getGCD(3,10));
+console.log(getGCD(3,9));
+console.log(getCoPrimes(27));
+
 $('#encrypt_button').click(() => {
 	runCipher();
 });
