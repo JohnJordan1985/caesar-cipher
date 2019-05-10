@@ -57,7 +57,10 @@ function getGCD(a, b) {
 }
 
 function getCoPrimes(modulus) {
-	let numbers = Array.apply(null, {length: modulus}).map(Number.call, Number)
+	let numbers = [];
+	for(let i = 1; i < modulus; i++ ) {
+		numbers.push(i);
+	}
 	console.log("Numbers are:", numbers);
 	let coPrimes = numbers.filter(number => {
 		return getGCD(number, modulus) === 1;
