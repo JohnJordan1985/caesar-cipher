@@ -1,6 +1,6 @@
 //let alphabetLowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const alphabetUpperCase = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-const numberInputs = 3;
+const numberInputs = 8;
 
 function addUserInputOutputToDOM(numElementsToAdd) {
 	let $docFragInputs = $(document.createDocumentFragment());
@@ -18,7 +18,6 @@ function getNewListOfUserInputs() {
 	$(".user-input").each(function(i,e){
 		listUserInput[i] = e.value;
 	});
-	console.log(listUserInput);
 	return listUserInput;
 }
 
@@ -30,8 +29,8 @@ function getNumericalValueOfLetter(passedInLetterToCheck) {
 	});
 }
 
-function updateRelevantOutputElement(numericalIndexOffsetted, newValue){
-	document.getElementById("output_char_" + numericalIndexOffsetted).value = newValue;
+function updateRelevantOutputElement(outputIndex, encryptedValue){
+	document.getElementById("output_char_" + outputIndex).value = encryptedValue;
 }
 
 function getEncryptedCharacterValue(plainTextCharArg, userEncryptionKey) {
@@ -48,11 +47,12 @@ function getEncryptedCharacterValue(plainTextCharArg, userEncryptionKey) {
 }
 
 function runCipher(userEncryptionKey) {
-	let listOfUserInputs = getNewListOfUserInputs();
-	console.log("value is: ", getNumericalValueOfLetter(listOfUserInputs[0]));
-	let encryptedCharValue = getEncryptedCharacterValue(listOfUserInputs[0], userEncryptionKey); // Need to pass in user selected key
-	console.log('encryptedCharValue: ', encryptedCharValue);
-	$outputChar1.val(encryptedCharValue);
+	let $listOfUserInputs = $(getNewListOfUserInputs());
+	let encryptedCharValue;
+	$listOfUserInputs.each((i,e) => {
+		encryptedCharValue = getEncryptedCharacterValue($listOfUserInputs[i], userEncryptionKey); // Need to pass in user selected key
+		updateRelevantOutputElement(i+1, encryptedCharValue); // elements not zero-indexed
+	});
 }
 
 function getGCD(a, b) {
