@@ -1,7 +1,18 @@
 //let alphabetLowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let alphabetUpperCase = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let $userInputChar1 = $("#user_char_1");
-let $outputChar1 = $("#output_char_1");
+const alphabetUpperCase = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const numberInputs = 3;
+
+function addUserInputOutputToDOM(numElementsToAdd) {
+	let $docFragInputs = $(document.createDocumentFragment());
+	let $docFragOutputs = $(document.createDocumentFragment());
+	for(var i = 1; i <= numElementsToAdd; i++) {
+		$docFragInputs.append($("<input id='user_char_" + i + "' type='text' maxlength='1' class='user-input' />"));
+		$docFragOutputs.append($("<output name='result' form='input_form' for='user_char_" + i + "' id='output_char_" + i + "' > </output>"));
+	}
+	$("#user_input_message").append($docFragInputs);
+	$("#output_section .output-group").append($docFragOutputs);
+}
+
 function getNewListOfUserInputs() {
 	let listUserInput =  [];
 	$(".user-input").each(function(i,e){
@@ -10,7 +21,6 @@ function getNewListOfUserInputs() {
 	console.log(listUserInput);
 	return listUserInput;
 }
-
 
 function getNumericalValueOfLetter(passedInLetterToCheck) {
 	var letterToCheck = passedInLetterToCheck.toString().toUpperCase();
@@ -68,7 +78,7 @@ function getCoPrimes(modulus) {
 	return coPrimes;
 }
 
-function decorateDocFrag(docFrag, listOfCoPrimes, inputElemID = 'encrypt_key_') {
+function decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes, inputElemID = 'encrypt_key_') {
 	let inputElem, labelInputElem;
 	$.each(listOfCoPrimes, (i, number) => {
 		inputElem = $("<input id='" + inputElemID + number + "' type='radio' value='" + number + "' name='encrypt-key' />"), labelInputElem = $("<label for='" + inputElemID + number + "' >" + number + "</label>");
@@ -79,7 +89,7 @@ function decorateDocFrag(docFrag, listOfCoPrimes, inputElemID = 'encrypt_key_') 
 
 function addEncryptionKeysDOM(listOfCoPrimes) {
 	let docFrag = document.createDocumentFragment();
-	decorateDocFrag(docFrag, listOfCoPrimes);
+	decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes);
 	docFrag.firstChild.checked = true;
 	$("#encrypt_key_list").append(docFrag);
 }
@@ -89,11 +99,15 @@ function getUserEncryptionKey(){
 }
 
 
+addUserInputOutputToDOM(numberInputs);
 addEncryptionKeysDOM(getCoPrimes(27));
-
 console.log(getGCD(3,10));
 console.log(getGCD(3,9));
 console.log(getCoPrimes(27));
+
+
+let $userInputChar1 = $("#user_char_1");
+let $outputChar1 = $("#output_char_1");
 
 $('#encrypt_button').click(() => {
 	let userEncryptionKey = getUserEncryptionKey();

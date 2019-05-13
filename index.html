@@ -26,8 +26,11 @@
 			padding-left: 13px; /* Has 2px border */
 		}
 		input, output {
+			display: inline-block;
 			width: 15px;
 			height: 15px;
+			min-width: 15px;
+			margin: 2px 4px;
 			font-size: 16px;
 			padding: 1px 0px;
 			border: 2px solid threedface;
@@ -61,7 +64,6 @@
 			<form id="input_form" action="">
 				<fieldset id="user_input_message">
 					<legend>Enter your message to <em>encode</em> here:</legend>
-					<input id="user_char_1" type="text" maxlength="1" class="user-input">
 				</fieldset>
 				<fieldset id="encrypt_key_list">
 					<legend>Select your cipher key:</legend>
@@ -77,7 +79,7 @@
 		<section id="output_section">
 			<fieldset class="output-group">
 				<legend>Your encrypted message: </legend>
-				<output name="result" form="input_form" for="user_char_1" id="output_char_1"> </output>
+
 			</fieldset>
 		</section>
 	</main>
