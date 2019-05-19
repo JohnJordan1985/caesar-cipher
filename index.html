@@ -42,6 +42,10 @@
 			width: auto;
 		}
 
+		.table-row {
+			display: table-row;
+		}
+
 		.output-group {
 			display: inline-block;
 			border: 2px solid threedface;
@@ -61,14 +65,13 @@
 	</header>
 	<main>
 		<section id="input_section">
-			<form id="input_form" action="">
+			<h2 class="table-row">Input</h2>
+			<form id="input_form" action="#">
 				<fieldset id="user_input_message">
 					<legend>Enter your message to <em>encode</em> here:</legend>
 				</fieldset>
 				<fieldset id="encrypt_key_list">
 					<legend>Select your cipher key:</legend>
-					<label for="user_cipher_key">Cipher Key: </label>
-
 					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
 				</fieldset>
@@ -77,6 +80,7 @@
 			</form>
 		</section>
 		<section id="output_section">
+			<h2 class="table-row">Output</h2>
 			<fieldset class="output-group">
 				<legend>Your encrypted message: </legend>
 

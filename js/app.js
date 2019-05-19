@@ -2,6 +2,8 @@
 const alphabetUpperCase = ["&nbsp;", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const numberInputs = 8;
 
+$("#encrypt_key_list").append(`<label for="user_cipher_key">Cipher Key: </label>`); // avoids HTML validation error regards 'hidden' input element, referenced by 'for' attr
+
 function addUserInputOutputToDOM(numElementsToAdd) {
 	let $docFragInputs = $(document.createDocumentFragment());
 	let $docFragOutputs = $(document.createDocumentFragment());
