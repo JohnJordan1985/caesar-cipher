@@ -31,7 +31,6 @@ function updateRelevantOutputElement(outputIndex, encryptedValue){
 }
 
 
-
 function runCipher(userEncryptionKey) {
 	let $listOfUserInputs = $(getNewListOfUserInputs());
 	let encryptedCharValue;
