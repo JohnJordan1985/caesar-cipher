@@ -1,4 +1,4 @@
-import {getNumericalValueOfLetter, getEncryptedCharacterValue} from "./encrypt.js";
+import getEncryptedCharacterValue from "./encrypt.js";
 
 
 const numberInputs = 8;
