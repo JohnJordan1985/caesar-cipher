@@ -1,5 +1,6 @@
 import getEncryptedCharacterValue from "./encrypt.js";
 
+import {getCoPrimes} from "./math-helpers.js";
 
 const numberInputs = 8;
 
@@ -40,28 +41,6 @@ function runCipher(userEncryptionKey) {
 	});
 }
 
-function getGCD(a, b) {
-	let t;
-    while(b != 0){
-        t = a;
-        a = b;
-        b = t%b;
-    }
-    return a;
-}
-
-function getCoPrimes(modulus) {
-	let numbers = [];
-	for(let i = 1; i < modulus; i++ ) {
-		numbers.push(i);
-	}
-	console.log("Numbers are:", numbers);
-	let coPrimes = numbers.filter(number => {
-		return getGCD(number, modulus) === 1;
-	});
-	console.log("coPrimes are: ", coPrimes);
-	return coPrimes;
-}
 
 function decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes, inputElemID = 'encrypt_key_') {
 	let inputElem, labelInputElem;
@@ -86,9 +65,7 @@ function getUserEncryptionKey(){
 
 addUserInputOutputToDOM(numberInputs);
 addEncryptionKeysDOM(getCoPrimes(27));
-console.log(getGCD(3,10));
-console.log(getGCD(3,9));
-console.log(getCoPrimes(27));
+
 
 
 let $userInputChar1 = $("#user_char_1");
