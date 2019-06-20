@@ -70,4 +70,5 @@ $('#encrypt_button').click(() => {
 	let userEncryptionKey = getUserEncryptionKey();
 	let $listOfUserInputs = $(getNewListOfUserInputs());
 	setOutputElements($listOfUserInputs, userEncryptionKey);
+	console.log(getModularInverse(5,26));
 });

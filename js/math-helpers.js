@@ -27,4 +27,8 @@ export function getCoPrimes(modulus) {
 
 export function getModularInverse(encryptKey, modulus) {
 	/* To return inverse of encryptKey, modulo the modulus */
+	for(let i = 0; i < modulus; i++) {
+		if( (encryptKey*i)%modulus === 1 ) return i;		
+	}
+	return null;
 }
