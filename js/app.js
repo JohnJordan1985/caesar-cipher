@@ -9,7 +9,7 @@ $("#encrypt_key_list").append(`<label for="user_cipher_key">Cipher Key: </label>
 function decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes, inputElemID = 'encrypt_key_') {
 	let inputElem, labelInputElem;
 	$.each(listOfCoPrimes, (i, number) => {
-		inputElem = $("<input id='" + inputElemID + number + "' type='radio' value='" + number + "' name='encrypt-key' />"), labelInputElem = $("<label for='" + inputElemID + number + "' >" + number + "</label>");
+		inputElem = $(`<input id='${inputElemID + number}' type='radio' value='${number}' name='encrypt-key' />`), labelInputElem = $(`<label for='${inputElemID + number}'>${number}</label>`);
 		docFrag.append(inputElem.get(0),labelInputElem.get(0));
 	});
 }
@@ -31,8 +31,8 @@ function addUserInputOutputToDOM(numElementsToAdd) {
 	let $docFragInputs = $(document.createDocumentFragment());
 	let $docFragOutputs = $(document.createDocumentFragment());
 	for(var i = 1; i <= numElementsToAdd; i++) {
-		$docFragInputs.append($("<input id='user_char_" + i + "' type='text' maxlength='1' class='user-input' />"));
-		$docFragOutputs.append($("<output name='result' form='input_form' for='user_char_" + i + "' id='output_char_" + i + "' > </output>"));
+		$docFragInputs.append($(`<input id='user_char_${i} type='text' maxlength='1' class='user-input' />`));
+		$docFragOutputs.append($(`<output name='result' form='input_form' for='user_char_${i}' id='output_char_${i}' ></output>`));
 	}
 	$("#user_input_message").append($docFragInputs);
 	$("#output_section .output-group").append($docFragOutputs);
