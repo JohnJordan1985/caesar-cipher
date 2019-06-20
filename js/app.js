@@ -2,7 +2,7 @@ import getEncryptedCharacterValue from "./encrypt.js";
 
 import {getCoPrimes} from "./math-helpers.js";
 
-const numberInputs = 8;
+const numberInputs = 12;
 
 $("#encrypt_key_list").append(`<label for="user_cipher_key">Cipher Key: </label>`); // avoids HTML validation error regards 'hidden' input element, referenced by 'for' attr
 
@@ -23,7 +23,7 @@ function addEncryptionKeysDOM(listOfCoPrimes) {
 	let docFrag = document.createDocumentFragment();
 	decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes);
 	docFrag.firstChild.checked = true;
-	$("#encrypt_key_list").append(docFrag);
+	$("#encrypt_key_list, #decrypt_key_list").append(docFrag);
 }
 
 
@@ -62,6 +62,7 @@ function setOutputElements($listOfUserInputs, userEncryptionKey) {
 
 addUserInputOutputToDOM(numberInputs);
 addEncryptionKeysDOM(getCoPrimes(27));
+
 let $userInputChar1 = $("#user_char_1");
 let $outputChar1 = $("#output_char_1");
 

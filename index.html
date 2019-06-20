@@ -66,8 +66,11 @@
 		<h1>I came, I saw, I encrypted.</h1>
 	</header>
 	<main>
+		<section>
+			<h2>Encryption</h2>
+		</section>
 		<section id="input_section">
-			<h2 class="table-row">Input</h2>
+			<h3 class="table-row">Input</h3>
 			<form id="input_form" action="#">
 				<fieldset id="user_input_message">
 					<legend>Enter your message to <em>encode</em> here:</legend>
@@ -82,11 +85,21 @@
 			</form>
 		</section>
 		<section id="output_section">
-			<h2 class="table-row">Output</h2>
+			<h3 class="table-row">Output</h3>
 			<fieldset class="output-group">
 				<legend>Your encrypted message: </legend>
 
 			</fieldset>
+		</section>
+		<section>
+			<h2>Decryption</h2>
+			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
+			<textarea name="encrypted-input" id="encrypted_input" cols="30" rows="10"></textarea>
+			<fieldset id="decrypt_key_list">
+					<legend>Select the key used to <i>encrypt</i> the original message</legend>
+					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
+					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
+				</fieldset>
 		</section>
 	</main>
 	<footer></footer>
