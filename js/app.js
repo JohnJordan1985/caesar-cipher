@@ -1,6 +1,6 @@
 import getEncryptedCharacterValue from "./encrypt.js";
 
-import {getCoPrimes} from "./math-helpers.js";
+import {getCoPrimes, getModularInverse} from "./math-helpers.js";
 
 const numberInputs = 12;
 

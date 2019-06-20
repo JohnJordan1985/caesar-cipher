@@ -24,3 +24,7 @@ export function getCoPrimes(modulus) {
 	console.log("coPrimes are: ", coPrimes);
 	return coPrimes;
 }
+
+export function getModularInverse(encryptKey, modulus) {
+	/* To return inverse of encryptKey, modulo the modulus */
+}
