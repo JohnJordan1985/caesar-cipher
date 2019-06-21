@@ -5,7 +5,7 @@ function getGCD(a, b) {
         a = b;
         b = t%b;
     }
-    return a;
+    return a; 	
 }
 
 function getAllNumbersLessThan(modulus) {
@@ -19,9 +19,8 @@ function getAllNumbersLessThan(modulus) {
 export function getCoPrimes(modulus) {
 	let numbers = getAllNumbersLessThan(modulus);
 	let coPrimes = numbers.filter(number => {
-		return getGCD(number, modulus) === 1;
+		return getGCD(number, modulus) !== 1;
 	});
-	console.log("coPrimes are: ", coPrimes);
 	return coPrimes;
 }
 
