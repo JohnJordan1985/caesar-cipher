@@ -9,9 +9,26 @@ function getNumericalValueOfLetter(letter) {
 	});
 }
 
-export default function getEncryptedCharacterValue(plainTextChar, userEncryptionKey) {
+function getModInverse(num, modulus) {
+	for(var i = 1; i < modulus; i++){
+		if((num*i)%modulus === 1) {
+			return i;
+		}
+	}
+	return null;
+}
+
+export function getEncryptedCharacterValue(plainTextChar, userEncryptionKey) {
 	let numericalValuePlainTextChar = getNumericalValueOfLetter(plainTextChar);
 	numericalValuePlainTextChar = (numericalValuePlainTextChar >= 0) ? numericalValuePlainTextChar : 0 ; // catch cases where '-1' if not in alphabetUpperCase array
 	let encryptedIndexValueNotOffset = (numericalValuePlainTextChar*userEncryptionKey)%modulus;
 	return alphabetUpperCase[encryptedIndexValueNotOffset];
+}
+
+export function getDecryptedCharacterValue(cipherTextChar, key, modulus) {
+	console.log(cipherTextChar, key, modulus)
+	let numericalValueCipherTextChar = getNumericalValueOfLetter(cipherTextChar);	
+	console.log('letter value is ', numericalValueCipherTextChar);
+	console.log('modInerse is:', getModInverse(key, modulus));
+	return alphabetUpperCase[getModInverse(key, modulus)*numericalValueCipherTextChar];
 }

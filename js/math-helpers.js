@@ -24,18 +24,10 @@ function getAllNumbersLessThan(modulus) {
 	return numbers;
 }
 
-export function getCoPrimes(modulus) {
+export default function getCoPrimes(modulus) {
 	let numbers = getAllNumbersLessThan(modulus);
 	let coPrimes = numbers.filter(number => {
-		return getGCDRecur(number, modulus) !== 1;
+		return getGCDRecur(number, modulus) === 1;
 	});
 	return coPrimes;
-}
-
-export function getModularInverse(encryptKey, modulus) {
-	/* To return inverse of encryptKey, modulo the modulus */
-	for(let i = 0; i < modulus; i++) {
-		if( (encryptKey*i)%modulus === 1 ) return i;		
-	}
-	return null;
 }

@@ -1,6 +1,6 @@
-import getEncryptedCharacterValue from "./encrypt.js";
+import {getEncryptedCharacterValue, getDecryptedCharacterValue} from "./encrypt.js";
 
-import {getCoPrimes, getModularInverse} from "./math-helpers.js";
+import getCoPrimes from "./math-helpers.js";
 
 const numberInputs = 12;
 
@@ -31,7 +31,7 @@ function addUserInputOutputToDOM(numElementsToAdd) {
 	let $docFragInputs = $(document.createDocumentFragment());
 	let $docFragOutputs = $(document.createDocumentFragment());
 	for(var i = 1; i <= numElementsToAdd; i++) {
-		$docFragInputs.append($(`<input id='user_char_${i} type='text' maxlength='1' class='user-input' />`));
+		$docFragInputs.append($(`<input id='user_char_${i}' type='text' maxlength='1' class='user-input' />`));
 		$docFragOutputs.append($(`<output name='result' form='input_form' for='user_char_${i}' id='output_char_${i}' ></output>`));
 	}
 	$("#user_input_message").append($docFragInputs);
@@ -66,9 +66,10 @@ addEncryptionKeysDOM(getCoPrimes(27));
 let $userInputChar1 = $("#user_char_1");
 let $outputChar1 = $("#output_char_1");
 
+console.log(getDecryptedCharacterValue("B", 4, 27));
+
 $('#encrypt_button').click(() => {
 	let userEncryptionKey = getUserEncryptionKey();
 	let $listOfUserInputs = $(getNewListOfUserInputs());
 	setOutputElements($listOfUserInputs, userEncryptionKey);
-	console.log(getModularInverse(5,26));
 });
