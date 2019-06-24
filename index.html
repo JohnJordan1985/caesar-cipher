@@ -30,7 +30,7 @@
 			margin: 0;
 			padding-left: 13px; /* Has 2px border */
 		}
-		input, output {
+		input[type="text"], output[type="text"] {
 			display: inline-block;
 			width: 15px;
 			height: 15px;
@@ -68,38 +68,47 @@
 	<main>
 		<section>
 			<h2>Encryption</h2>
-		</section>
-		<section id="input_section">
-			<h3 class="table-row">Input</h3>
-			<form id="input_form" action="#">
-				<fieldset id="user_input_message">
-					<legend>Enter your message to <em>encode</em> here:</legend>
-				</fieldset>
-				<fieldset id="encrypt_key_list">
-					<legend>Select your cipher key:</legend>
-					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
-					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
-				</fieldset>
-				<button id="encrypt_button" type="button">Encypher</button>
-				<!-- <button id="decode_button" type="button">Decode</button> -->
-			</form>
-		</section>
-		<section id="output_section">
-			<h3 class="table-row">Output</h3>
-			<fieldset class="output-group">
-				<legend>Your encrypted message: </legend>
+			<section id="input_section">
+				<h3 class="table-row">Input</h3>
+				<form id="input_form" action="#">
+					<fieldset id="user_input_message">
+						<legend>Enter your message to <em>encode</em> here:</legend>
+					</fieldset>
+					<fieldset id="encrypt_key_list">
+						<legend>Select your cipher key:</legend>
+						<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
+						<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
+					</fieldset>
+					<button id="encrypt_button" type="button">Encypher</button>
+					<!-- <button id="decode_button" type="button">Decode</button> -->
+				</form>
+			</section>
+			<section id="output_section">
+				<h3 class="table-row">Output</h3>
+				<fieldset class="output-group">
+					<legend>Your encrypted message: </legend>
 
-			</fieldset>
+				</fieldset>
+			</section>
 		</section>
+
 		<section>
-			<h2>Decryption</h2>
+			<h2 class="table-row">Decryption</h2>
 			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
-			<textarea name="encrypted-input" id="encrypted_input" cols="30" rows="10"></textarea>
-			<fieldset id="decrypt_key_list">
+			<section>
+				<form action="#" id="decrypt_form">
+				<textarea name="encrypted-input" id="encrypted_input" cols="30" rows="10"></textarea>
+				<fieldset id="decrypt_key_list">
 					<legend>Select the key used to <i>encrypt</i> the original message</legend>
 					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
 				</fieldset>
+				<input id="decrypt_button" type="submit" placeholder="Decrypt" value="Decrypt" />
+			</form>
+			<output id="decrypted_output" name="decrypted-output" for="encrypted_input decrypt_key_list" form="decrypt_form"></output>
+			</section>
+			
+			
 		</section>
 	</main>
 	<footer></footer>
