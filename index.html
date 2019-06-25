@@ -24,6 +24,10 @@
 			display: table-cell;
 			vertical-align: middle;
 			height: 150px;
+			margin-bottom: 1.5rem;
+		}
+		legend {
+			margin-bottom: 1rem;
 		}
 		fieldset {
 			display: block;
@@ -45,6 +49,10 @@
 		input[type='number']{
 			height: auto;
 			width: auto;
+		}
+
+		button {
+			margin: 1rem auto 1.5rem;
 		}
 
 		.table-row {
@@ -96,16 +104,24 @@
 			<h2 class="table-row">Decryption</h2>
 			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
 			<section>
-				<form action="#" id="decrypt_form">
-				<textarea name="encrypted-input" id="encrypted_input" cols="30" rows="10"></textarea>
+				<form action="#" onsubmit="return false;" id="decrypt_form">
+				<textarea name="encrypted-input" id="encrypted_input" cols="30" rows="5"></textarea>
 				<fieldset id="decrypt_key_list">
 					<legend>Select the key used to <i>encrypt</i> the original message</legend>
 					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
 				</fieldset>
-				<input id="decrypt_button" type="submit" placeholder="Decrypt" value="Decrypt" />
+				<button id="decrypt_button" type="submit">Decrypt</button>
 			</form>
-			<output id="decrypted_output" name="decrypted-output" for="encrypted_input decrypt_key_list" form="decrypt_form"></output>
+			</section>
+			<section id="decrypted_output_section">
+				<h3 class="table-row">Output</h3>
+				<fieldset class="output-group">
+					<legend>Your <em>de-crypted</em> message: </legend>
+					<output id="decrypted_output" name="decrypted-output" for="encrypted_input decrypt_key_list" form="decrypt_form"></output>
+
+
+				</fieldset>
 			</section>
 			
 			

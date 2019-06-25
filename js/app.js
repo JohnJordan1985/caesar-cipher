@@ -14,9 +14,11 @@ function decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes, inputElemID = 'e
 	});
 }
 
-function getUserEncryptionKey(){
-	return $("#encrypt_key_list input[name='encrypt-key']:checked").val();
+function getUserEncryptionKey(elementID = 'encrypt_key_list'){
+	return $(`#${elementID} input[name='encrypt-key']:checked`).val();
 }
+
+
 
 
 function addEncryptionKeysDOM(listOfCoPrimes) {
@@ -72,4 +74,15 @@ $('#encrypt_button').click(() => {
 	let userEncryptionKey = getUserEncryptionKey();
 	let $listOfUserInputs = $(getNewListOfUserInputs());
 	setOutputElements($listOfUserInputs, userEncryptionKey);
+});
+
+$("#decrypt_button").click(()=> {
+	let userEncryptionKey = getUserEncryptionKey("decrypt_key_list");
+	let userInput = document.getElementById("encrypted_input").value;
+	let outPut = userInput.split("").map(char => {
+		return getDecryptedCharacterValue(char, userEncryptionKey, 27);
+	});
+	console.log('output is: ', outPut);
+
+	document.getElementById("decrypted_output").innerHTML = outPut.join("");
 });

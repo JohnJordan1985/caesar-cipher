@@ -15,7 +15,7 @@ function getModInverse(num, modulus) {
 			return i;
 		}
 	}
-	return null;
+	return "--";
 }
 
 export function getEncryptedCharacterValue(plainTextChar, userEncryptionKey) {
@@ -26,9 +26,9 @@ export function getEncryptedCharacterValue(plainTextChar, userEncryptionKey) {
 }
 
 export function getDecryptedCharacterValue(cipherTextChar, key, modulus) {
-	console.log(cipherTextChar, key, modulus)
+	//console.log(cipherTextChar, key, modulus)
 	let numericalValueCipherTextChar = getNumericalValueOfLetter(cipherTextChar);	
-	console.log('letter value is ', numericalValueCipherTextChar);
+	//console.log('letter value is ', numericalValueCipherTextChar);
 	console.log('modInerse is:', getModInverse(key, modulus));
-	return alphabetUpperCase[getModInverse(key, modulus)*numericalValueCipherTextChar];
+	return alphabetUpperCase[(getModInverse(key, modulus)*numericalValueCipherTextChar)%modulus];
 }
