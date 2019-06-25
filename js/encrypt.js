@@ -1,5 +1,5 @@
 //let alphabetLowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-const alphabetUpperCase = ["--", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const alphabetUpperCase = ["—", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const modulus = alphabetUpperCase.length;
 
 function getNumericalValueOfLetter(letter) {
@@ -25,7 +25,7 @@ export function getEncryptedCharacterValue(plainTextChar, userEncryptionKey) {
 	return alphabetUpperCase[encryptedIndexValueNotOffset];
 }
 
-export function getDecryptedCharacterValue(cipherTextChar, key, modulus) {	
+export function getDecryptedCharacterValue(cipherTextChar, key) {	
 	let numericalValueCipherTextChar = getNumericalValueOfLetter(cipherTextChar);	
 	let charValue = (getModInverse(key, modulus)*numericalValueCipherTextChar)%modulus;
 	return (charValue >= 1) ? alphabetUpperCase[charValue] : alphabetUpperCase[0];

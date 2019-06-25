@@ -12,10 +12,7 @@
 			font-family: Arial, sans-serif;
 			text-align: center;
 
-		}
-		main {
-			height: 300px;
-		}
+		}		
 		section {
 				display: table;
 			    margin: auto;
@@ -26,12 +23,12 @@
 			height: 150px;
 			margin-bottom: 1.5rem;
 		}
-		legend {
+		legend, output {
 			margin-bottom: 1rem;
 		}
 		fieldset {
 			display: block;
-			margin: 0;
+			margin: 1rem;
 			padding-left: 13px; /* Has 2px border */
 		}
 		input[type="text"], output[type="text"] {
@@ -101,6 +98,28 @@
 		</section>
 
 		<section>
+			<h2>Encryption</h2>
+			<section id="input_section_textfield">
+				<h3 class="table-row">Input</h3><section>
+				<form action="#" onsubmit="return false;" id="encrypt_form_textfield">
+					<textarea name="plain-input" id="plain_input" cols="30" rows="5"></textarea>
+					<fieldset id="encrypt_key_list_2">
+						<legend>Select the key used to <i>encrypt</i> the original message</legend>
+						<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
+						<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
+					</fieldset>
+					<button id="encrypt_button_2" type="submit">Encrypt</button>
+				</form>
+			</section>
+			<section>
+				<h3>Your encrypted message:</h3>
+				<output id="encrypted_output_2" name="encrypted-output" for="plain_input encrypt_key_list_2" form="encrypt_form_textfield"></output>
+			</section>
+
+			</section>
+		</section>
+
+		<section>
 			<h2 class="table-row">Decryption</h2>
 			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
 			<section>
@@ -119,11 +138,8 @@
 				<fieldset class="output-group">
 					<legend>Your <em>de-crypted</em> message: </legend>
 					<output id="decrypted_output" name="decrypted-output" for="encrypted_input decrypt_key_list" form="decrypt_form"></output>
-
-
 				</fieldset>
 			</section>
-			
 			
 		</section>
 	</main>

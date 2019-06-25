@@ -25,7 +25,7 @@ function addEncryptionKeysDOM(listOfCoPrimes) {
 	let docFrag = document.createDocumentFragment();
 	decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes);
 	docFrag.firstChild.checked = true;
-	$("#encrypt_key_list, #decrypt_key_list").append(docFrag);
+	$("#encrypt_key_list,#encrypt_key_list_2, #decrypt_key_list").append(docFrag);
 }
 
 
@@ -68,7 +68,7 @@ addEncryptionKeysDOM(getCoPrimes(27));
 let $userInputChar1 = $("#user_char_1");
 let $outputChar1 = $("#output_char_1");
 
-console.log(getDecryptedCharacterValue("B", 4, 27));
+console.log(getDecryptedCharacterValue("B", 4));
 
 $('#encrypt_button').click(() => {
 	let userEncryptionKey = getUserEncryptionKey();
@@ -76,13 +76,21 @@ $('#encrypt_button').click(() => {
 	setOutputElements($listOfUserInputs, userEncryptionKey);
 });
 
+$('#encrypt_button_2').click(() => {
+	let userEncryptionKey = getUserEncryptionKey("encrypt_key_list_2");
+	let userInput = $("#plain_input").val();
+	let outPut = userInput.split("").map(char => {
+		return getEncryptedCharacterValue(char, userEncryptionKey);
+	});
+	$("#encrypted_output_2").val(outPut.join(""));
+
+});
+
 $("#decrypt_button").click(()=> {
 	let userEncryptionKey = getUserEncryptionKey("decrypt_key_list");
-	let userInput = document.getElementById("encrypted_input").value;
+	let userInput = $("#encrypted_input").val();
 	let outPut = userInput.split("").map(char => {
-		return getDecryptedCharacterValue(char, userEncryptionKey, 27);
+		return getDecryptedCharacterValue(char, userEncryptionKey);
 	});
-	console.log('output is: ', outPut);
-
-	document.getElementById("decrypted_output").innerHTML = outPut.join("");
+	$("#decrypted_output").val(outPut.join(""));
 });
