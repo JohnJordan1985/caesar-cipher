@@ -68,7 +68,13 @@ addEncryptionKeysDOM(getCoPrimes(27));
 let $userInputChar1 = $("#user_char_1");
 let $outputChar1 = $("#output_char_1");
 
-console.log(getDecryptedCharacterValue("B", 4));
+
+$("#copy_encrypted").click(() => {
+	let virtualTextArea = $("input[type='text']"); //since output element is not focusable => cannot select it, so create this virtual element
+	virtualTextArea.val($("#encrypted_output_2").text());
+	virtualTextArea.select();	
+	document.execCommand("copy");
+});
 
 $('#encrypt_button').click(() => {
 	let userEncryptionKey = getUserEncryptionKey();
@@ -82,7 +88,7 @@ $('#encrypt_button_2').click(() => {
 	let outPut = userInput.split("").map(char => {
 		return getEncryptedCharacterValue(char, userEncryptionKey);
 	});
-	$("#encrypted_output_2").val(outPut.join(""));
+	$("#encrypted_output_2").text(outPut.join(""));
 
 });
 
