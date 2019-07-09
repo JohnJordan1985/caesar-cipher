@@ -70,10 +70,12 @@ let $outputChar1 = $("#output_char_1");
 
 
 $("#copy_encrypted").click(() => {
-	let virtualTextArea = $("input[type='text']"); //since output element is not focusable => cannot select it, so create this virtual element
-	virtualTextArea.val($("#encrypted_output_2").text());
-	virtualTextArea.select();	
+	let $output = $("#encrypted_output_2");
+	$output.append("<input id='virtual_input' type='text' style='position: absolute; top: -10000px; width: 0; height: 0' />"); //since output element is not focusable => cannot select it, so create this 'virtual' element
+	let $virtualTextArea = $output.children().last(); 
+	$virtualTextArea.val($output.text()).select(); 
 	document.execCommand("copy");
+	$virtualTextArea.remove();
 });
 
 $('#encrypt_button').click(() => {
