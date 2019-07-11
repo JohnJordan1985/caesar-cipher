@@ -5,19 +5,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/styles.css">
 	<style>
+		* {
+			box-sizing: border-box;			
+		}
 		html, body {
 			height: 100%;
+			min-height: 100%;
 		}
 		body {
 			font-family: Arial, sans-serif;
 			text-align: center;
 			padding: 0;
+			margin: 0;
+			padding-top: 3rem;
 
-		}		
+		}	
+
 		section {
 				display: table;
 			    margin: auto;
 		}
+		
 		form {
 			display: table-cell;
 			vertical-align: middle;
@@ -68,9 +76,7 @@
 	</style>
 </head>
 <body class="bg-gradient -split">
-	<header>
-		<h1>I came, I saw, I encrypted.</h1>
-	</header>
+	
 	<nav><a href="#encrypt" id="tab_encrypt">Encrypt?</a> or <a href="#decrypt" id="tab_decrypt">Decrypt?</a></nav>
 	<main>
 		<section style="display:none">
@@ -99,7 +105,7 @@
 			</section>
 		</section>
 
-		<section id="encrypt">
+		<section id="encrypt" class="encryption">
 			<h2>Encryption</h2>
 			<section id="input_section_textfield">
 				<h3 class="table-row">Input</h3><section>

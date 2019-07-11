@@ -1,4 +1,8 @@
+.encryption {
+	height: 50%;
+}
 .decryption {
+	height: 50%;
 	color: white;
 	background-color: black;
 }
@@ -13,11 +17,11 @@
 }
 
 .bg-gradient.-split {
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+2,ffffff+50,ffffff+50,000000+50,000000+99 */
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+50,ffffff+50,000000+50,000000+100 */
 	background: #ffffff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #ffffff 2%, #ffffff 50%, #ffffff 50%, #000000 50%, #000000 99%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #ffffff 2%,#ffffff 50%,#ffffff 50%,#000000 50%,#000000 99%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #ffffff 2%,#ffffff 50%,#ffffff 50%,#000000 50%,#000000 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 50%, #ffffff 50%, #000000 50%, #000000 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#ffffff 50%,#ffffff 50%,#000000 50%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 50%,#ffffff 50%,#000000 50%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 
