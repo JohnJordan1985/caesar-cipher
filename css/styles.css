@@ -1,3 +1,7 @@
+
+nav {
+	margin-bottom: 3rem;
+	}
 .encryption {
 	height: 50%;
 }
@@ -28,9 +32,23 @@
 /* Tab Navigation */
 
 #encrypt, #decrypt {
-	visibility: hidden;
+	display: none; /* On mobile screens, poor UX with toggling 'visibility */
 }
 
+
 #encrypt:target, #decrypt:target {
-	visibility: visible;
+	display: block;
+}
+
+
+@media screen and (min-width: 786px ) {
+	#encrypt, #decrypt {
+		display: block;
+		visibility: hidden;
+	}
+
+	#encrypt:target, #decrypt:target {
+		visibility: visible;
+	}
+
 }

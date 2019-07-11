@@ -17,9 +17,12 @@
 			text-align: center;
 			padding: 0;
 			margin: 0;
+		}	
+
+		body, .decryption {
 			padding-top: 3rem;
 
-		}	
+		}
 
 		section {
 				display: table;
@@ -61,9 +64,7 @@
 			margin: 1rem auto 1.5rem;
 		}
 
-		.table-row {
-			display: table-row;
-		}
+		
 
 		.output-group {
 			display: inline-block;
@@ -82,7 +83,7 @@
 		<section style="display:none">
 			<h2>Encryption</h2>
 			<section id="input_section">
-				<h3 class="table-row">Input</h3>
+				<h3 class="">Input</h3>
 				<form id="input_form" action="#">
 					<fieldset id="user_input_message">
 						<legend>Enter your message to <em>encode</em> here:</legend>
@@ -97,7 +98,7 @@
 				</form>
 			</section>
 			<section id="output_section">
-				<h3 class="table-row">Output</h3>
+				<h3 class="">Output</h3>
 				<fieldset class="output-group">
 					<legend>Your encrypted message: </legend>
 
@@ -108,7 +109,7 @@
 		<section id="encrypt" class="encryption">
 			<h2>Encryption</h2>
 			<section id="input_section_textfield">
-				<h3 class="table-row">Input</h3><section>
+				<h3 class="">Input</h3><section>
 				<form action="#" onsubmit="return false;" id="encrypt_form_textfield">
 					<textarea name="plain-input" id="plain_input" cols="30" rows="5"></textarea>
 					<fieldset id="encrypt_key_list_2">
@@ -129,7 +130,7 @@
 		</section>
 
 		<section id="decrypt" class="decryption">
-			<h2 class="table-row">Decryption</h2>
+			<h2 class="">Decryption</h2>
 			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
 			<section>
 				<form action="#" onsubmit="return false;" id="decrypt_form">
@@ -143,7 +144,7 @@
 			</form>
 			</section>
 			<section id="decrypted_output_section">
-				<h3 class="table-row">Output</h3>
+				<h3 class="">Output</h3>
 				<fieldset class="output-group">
 					<legend>Your <em>de-crypted</em> message: </legend>
 					<output id="decrypted_output" name="decrypted-output" for="encrypted_input decrypt_key_list" form="decrypt_form"></output>
