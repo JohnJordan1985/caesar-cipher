@@ -11,6 +11,7 @@
 		body {
 			font-family: Arial, sans-serif;
 			text-align: center;
+			padding: 0;
 
 		}		
 		section {
@@ -66,10 +67,11 @@
 		}
 	</style>
 </head>
-<body class="bg-gradient -radial">
+<body class="bg-gradient -split">
 	<header>
 		<h1>I came, I saw, I encrypted.</h1>
 	</header>
+	<nav><a href="#encrypt" id="tab_encrypt">Encrypt?</a> or <a href="#decrypt" id="tab_decrypt">Decrypt?</a></nav>
 	<main>
 		<section style="display:none">
 			<h2>Encryption</h2>
@@ -97,7 +99,7 @@
 			</section>
 		</section>
 
-		<section>
+		<section id="encrypt">
 			<h2>Encryption</h2>
 			<section id="input_section_textfield">
 				<h3 class="table-row">Input</h3><section>
@@ -120,7 +122,7 @@
 			</section>
 		</section>
 
-		<section>
+		<section id="decrypt" class="decryption">
 			<h2 class="table-row">Decryption</h2>
 			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
 			<section>
