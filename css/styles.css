@@ -1,9 +1,14 @@
 
 nav {
-	margin-bottom: 3rem;
-	}
+	position: fixed;
+	top: 0;
+	padding: 1rem;
+	width: 100%;
+	text-align: center;
+}
 .encryption {
 	height: 50%;
+	background-color: white;
 }
 .decryption {
 	height: 50%;
