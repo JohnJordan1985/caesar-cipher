@@ -2,18 +2,40 @@
 nav {
 	position: fixed;
 	top: 0;
-	padding: 1rem;
+	padding: 10px 0;
 	width: 100%;
-	text-align: center;
+	/* For better appearance of box-shadoww element */
+	z-index: 3;
+	height: 46px;
+	background: white;
 }
+
+.box-shadow-3 {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.box-shadow-3.-fake {
+	height: 5px;
+	position: fixed;
+	top: 40px;
+	width:100%;
+}
+
+
+.box-shadow-3.-fake.-white {
+	box-shadow: 0 10px 20px rgba(255,255,255,0.40), 0 6px 6px rgba(255,255,255,0.45);
+}
+
+
 .encryption {
 	height: 50%;
 	background-color: white;
+	padding-top: 3rem; /* due to clipping on link click */
 }
 .decryption {
 	height: 50%;
 	color: white;
 	background-color: black;
+	padding-top: 3rem; /* due to clipping on link click */
 }
 
 .bg-gradient.-radial{
@@ -45,13 +67,8 @@ nav {
 	display: block;
 }
 
-
 @media screen and (min-width: 786px ) {
-	#encrypt, #decrypt {
-		display: block;
-		visibility: hidden;
-	}
-
+	
 	#encrypt:target, #decrypt:target {
 		visibility: visible;
 	}

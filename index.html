@@ -17,12 +17,8 @@
 			text-align: center;
 			padding: 0;
 			margin: 0;
-		}	
-
-		body, .decryption {
 			padding-top: 3rem;
-
-		}
+		}	
 
 		section {
 				display: table;
@@ -78,7 +74,11 @@
 </head>
 <body class="bg-gradient -split">
 	
-	<nav><a href="#encrypt" id="tab_encrypt">Encrypt?</a> or <a href="#decrypt" id="tab_decrypt">Decrypt?</a></nav>
+	<nav>
+		<a href="#encrypt" id="tab_encrypt">Encrypt?</a> 
+		or 
+		<a href="#decrypt" id="tab_decrypt">Decrypt?</a>
+	</nav>
 	<main>
 		<section style="display:none">
 			<h2>Encryption</h2>
@@ -107,6 +107,8 @@
 		</section>
 
 		<section id="encrypt" class="encryption">
+			<div class="box-shadow-3 -fake -blck">&nbsp;</div>
+
 			<h2>Encryption</h2>
 			<section id="input_section_textfield">
 				<h3 class="">Input</h3><section>
@@ -130,6 +132,8 @@
 		</section>
 
 		<section id="decrypt" class="decryption">
+			<div class="box-shadow-3 -fake -white">&nbsp;</div>
+
 			<h2 class="">Decryption</h2>
 			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
 			<section>
