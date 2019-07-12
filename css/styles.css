@@ -69,6 +69,12 @@ nav {
 	display: block;
 }
 
+#encrypt:target ~ .splash-screen, #decrypt:target ~ .splash-screen {
+	height:0;
+	position: absolute;
+	top: -100px;
+}
+
 @media screen and (min-width: 786px ) {
 	
 	#encrypt:target, #decrypt:target {
