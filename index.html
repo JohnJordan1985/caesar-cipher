@@ -105,7 +105,7 @@
 		<a href="#decrypt" id="tab_decrypt">Decrypt?</a>
 
 	</nav>
-	<main>
+	<main class="h-100">
 		<!-- <section style="display:none">
 			<h2>Encryption</h2>
 			<section id="input_section">
@@ -115,7 +115,7 @@
 						<legend>Enter your message to <em>encode</em> here:</legend>
 					</fieldset>
 					<fieldset id="encrypt_key_list">
-						<legend>Select your cipher key:</legend>
+						<legend>Select a cipher key to <em>encrypt</em> your message:</legend>
 						<label for="User_cipher_modulus">Cipher Modulus: </label>
 						<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> 
 					</fieldset>
@@ -127,20 +127,21 @@
 				<h3 class="">Output</h3>
 				<fieldset class="output-group">
 					<legend>Your encrypted message: </legend>
-
 				</fieldset>
 			</section>
-		</section> -->		
+		</section>		 -->
 
 		<section id="encrypt" class="encryption">
 			<div class="box-shadow-3 -fake -blck">&nbsp;</div>
 			<h2>Encryption</h2>
+			<p>Please enter the text you want to encrypt, and select a key to encrypt it.</p>
+
 			<section id="input_section_textfield">
-				<h3 class="">Input</h3><section>
+				<h3 class="">Input</h3>
 				<form action="#" onsubmit="return false;" id="encrypt_form_textfield">
 					<textarea name="plain-input" id="plain_input" cols="30" rows="5"></textarea>
 					<fieldset id="encrypt_key_list_2">
-						<legend>Select your cipher key:</legend>
+						<legend>&nbsp;Select a cipher key to <em>encrypt</em> your message&nbsp;</legend>						
 						<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 						<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
 					</fieldset>
@@ -160,10 +161,11 @@
 			<h2 class="">Decryption</h2>
 			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
 			<section>
+				<h3 class="">Input</h3>
 				<form action="#" onsubmit="return false;" id="decrypt_form">
 				<textarea name="encrypted-input" id="encrypted_input" cols="30" rows="5"></textarea>
 				<fieldset id="decrypt_key_list">
-					<legend>Select the key used to <i>encrypt</i> the original message</legend>
+					<legend>&nbsp;Select the key used to <i>encrypt</i> the original message&nbsp;</legend>
 					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
 				</fieldset>
@@ -179,11 +181,11 @@
 			</section>			
 		</section>
 
-		<section class="splash-screen bg-gradient -split ">
+		<div class="splash-screen bg-gradient -split ">
 			<div class="table-cell -v-align-middle h-100">
 				<a href="#encrypt">Encrypt?</a> or <a href="#decrypt">Decrypt</a>				
 			</div>
-		</section>
+		</div>
 	</main>
 	<footer></footer>
 	

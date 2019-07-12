@@ -24,21 +24,25 @@ nav {
 .box-shadow-3.-fake.-white {
 	box-shadow: 0 10px 20px rgba(255,255,255,0.40), 0 6px 6px rgba(255,255,255,0.45);
 	width:120%;
-	margin-left:10%;  /* As white doesn't cover horizontal as well as black  */
 }
 
 
-.encryption {
-	height: 50%;
-	background-color: white;
+.encryption, .decryption {
+	height: 100%;
 	padding-top: 3rem; /* due to clipping on link click */
+}
+.encryption {
+	background-color: white;
+	
 }
 .decryption {
-	height: 50%;
 	color: white;
 	background-color: black;
-	padding-top: 3rem; /* due to clipping on link click */
 }
+
+/*.encryption h3, .decryption h3 {
+  	display: table-row; /* To display in a block-like manner 
+}*/
 
 .bg-gradient.-radial{
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ccedff+0,ffffff+100 */
