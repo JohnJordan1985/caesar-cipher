@@ -70,6 +70,31 @@
 			padding-top: 4.55px;
 			padding-right: 9.75px; /* From browser user agent */
 		}
+
+		/* Splash screen */
+		.splash-screen {
+			height:100vh;
+			position: fixed;
+			width: 100%;
+			top: 0;
+			display: table;
+			z-index:5;
+		}
+
+		.splash-screen a {
+			display: block;
+		}
+
+		.table-cell {
+			display: table-cell;
+		}
+
+		.table-cell.-v-align-middle {
+			vertical-align: middle;
+		}
+		.h-100 {
+			height: 100%;
+		}
 	</style>
 </head>
 <body class="bg-gradient -split">
@@ -80,7 +105,7 @@
 		<a href="#decrypt" id="tab_decrypt">Decrypt?</a>
 	</nav>
 	<main>
-		<section style="display:none">
+		<!-- <section style="display:none">
 			<h2>Encryption</h2>
 			<section id="input_section">
 				<h3 class="">Input</h3>
@@ -104,7 +129,7 @@
 
 				</fieldset>
 			</section>
-		</section>
+		<!-- </section> -->
 
 		<section id="encrypt" class="encryption">
 			<div class="box-shadow-3 -fake -blck">&nbsp;</div>
@@ -153,11 +178,15 @@
 					<legend>Your <em>de-crypted</em> message: </legend>
 					<output id="decrypted_output" name="decrypted-output" for="encrypted_input decrypt_key_list" form="decrypt_form"></output>
 				</fieldset>
-			</section>
-			
+			</section>			
 		</section>
 	</main>
 	<footer></footer>
+	<section class="splash-screen bg-gradient -split ">
+			<div class="table-cell -v-align-middle h-100">
+				<a href="#encrypt">Encrypt?</a> or <a href="#decrypt">Decrypt</a>				
+			</div>
+		</section>
 <script
   src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
   integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
