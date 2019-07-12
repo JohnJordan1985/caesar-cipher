@@ -23,6 +23,8 @@ nav {
 
 .box-shadow-3.-fake.-white {
 	box-shadow: 0 10px 20px rgba(255,255,255,0.40), 0 6px 6px rgba(255,255,255,0.45);
+	width:120%;
+	margin-left:10%;  /* As white doesn't cover horizontal as well as black  */
 }
 
 
