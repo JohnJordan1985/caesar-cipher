@@ -1,4 +1,7 @@
-
+/* Typography */
+p, legend {
+	font-size: 0.75rem;
+}
 nav {
 	position: fixed;
 	top: 0;
@@ -33,16 +36,16 @@ nav {
 }
 .encryption {
 	background-color: white;
-	
+
 }
 .decryption {
 	color: white;
 	background-color: black;
 }
 
-/*.encryption h3, .decryption h3 {
-  	display: table-row; /* To display in a block-like manner 
-}*/
+.encryption h3, .decryption h3 {
+  	display: table-row; /* To display in a block-like manner */
+}
 
 .bg-gradient.-radial{
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ccedff+0,ffffff+100 */
@@ -75,7 +78,6 @@ nav {
 
 #encrypt:target ~ .splash-screen, #decrypt:target ~ .splash-screen {
 	height:0;
-	position: absolute;
 	top: -100px;
 }
 
