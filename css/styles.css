@@ -31,7 +31,8 @@ nav {
 
 
 .encryption, .decryption {
-	height: 100%;
+	min-height: 100%;
+	height:auto; /* to accomodate height of child elements */
 	padding-top: 3rem; /* due to clipping on link click */
 }
 .encryption {

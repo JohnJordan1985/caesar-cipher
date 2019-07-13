@@ -97,7 +97,7 @@
 		}
 	</style>
 </head>
-<body class="bg-gradient -split">
+<body class="">
 	
 	<nav>
 		<a href="#encrypt" id="tab_encrypt">Encrypt?</a> 
@@ -149,8 +149,14 @@
 				</form>
 			</section>
 			<section>
-				<h3>Your encrypted message:</h3>
-				<output id="encrypted_output_2" name="encrypted-output" for="plain_input encrypt_key_list_2" form="encrypt_form_textfield"></output>
+				<h3>Output</h3>
+				<fieldset>
+					<legend>			
+						Your <em>encrypted</em> message:			
+					</legend>
+					<output id="encrypted_output_2" name="encrypted-output" for="plain_input encrypt_key_list_2" form="encrypt_form_textfield"></output>
+
+				</fieldset>
 				<button id="copy_encrypted" >Copy to clip-board</button>
 			</section>
 		</section>
