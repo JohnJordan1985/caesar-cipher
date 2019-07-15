@@ -7,10 +7,15 @@ const numberInputs = 12;
 $("#encrypt_key_list").append(`<label for="user_cipher_key">Cipher Key: </label>`); // avoids HTML validation error regards 'hidden' input element, referenced by 'for' attr
 
 function decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes, inputElemID = 'encrypt_key_') {
-	let inputElem, labelInputElem;
+	// let inputElem, labelInputElem;
+	// $.each(listOfCoPrimes, (i, number) => {
+	// 	inputElem = $(`<input id='${inputElemID + number}' type='radio' value='${number}' name='encrypt-key' />`), labelInputElem = $(`<label for='${inputElemID + number}'>${number}</label>`);
+	// 	docFrag.append(inputElem.get(0),labelInputElem.get(0));
+	// });
+	let optionElem
 	$.each(listOfCoPrimes, (i, number) => {
-		inputElem = $(`<input id='${inputElemID + number}' type='radio' value='${number}' name='encrypt-key' />`), labelInputElem = $(`<label for='${inputElemID + number}'>${number}</label>`);
-		docFrag.append(inputElem.get(0),labelInputElem.get(0));
+		optionElem = $(`<option value='${number}'>${number}</option>`);
+		docFrag.append(optionElem.get(0));
 	});
 }
 

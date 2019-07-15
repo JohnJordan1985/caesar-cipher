@@ -140,8 +140,9 @@
 				<h3 class="">Input</h3>
 				<form action="#" onsubmit="return false;" id="encrypt_form_textfield">
 					<textarea name="plain-input" id="plain_input" cols="30" rows="5"></textarea>
-					<fieldset id="encrypt_key_list_2">
-						<legend>&nbsp;Select a cipher key to <em>encrypt</em> your message&nbsp;</legend>						
+					<fieldset>
+						<legend>&nbsp;Select a cipher key to <em>encrypt</em> your message&nbsp;</legend>			
+						<select name="encrypt-keys" id="encrypt_key_list_2"></select>			
 						<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 						<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
 					</fieldset>
@@ -170,8 +171,9 @@
 				<h3 class="">Input</h3>
 				<form action="#" onsubmit="return false;" id="decrypt_form">
 				<textarea name="encrypted-input" id="encrypted_input" cols="30" rows="5"></textarea>
-				<fieldset id="decrypt_key_list">
+				<fieldset id="">
 					<legend>&nbsp;Select the key used to <i>encrypt</i> the original message&nbsp;</legend>
+					<select name="decrypt-keys" id="decrypt_key_list"></select>
 					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
 				</fieldset>
