@@ -14,13 +14,13 @@ function decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes, inputElemID = 'e
 	// });
 	let optionElem
 	$.each(listOfCoPrimes, (i, number) => {
-		optionElem = $(`<option value='${number}'>${number}</option>`);
+		optionElem = $(`<option id='${inputElemID + number}' value='${number}'>${number}</option>`);
 		docFrag.append(optionElem.get(0));
 	});
 }
 
 function getUserEncryptionKey(elementID = 'encrypt_key_list'){
-	return $(`#${elementID} input[name='encrypt-key']:checked`).val();
+	return $(`#${elementID} option:selected`).val();
 }
 
 
@@ -89,9 +89,11 @@ $('#encrypt_button').click(() => {
 	setOutputElements($listOfUserInputs, userEncryptionKey);
 });
 
-$('#encrypt_button_2').click(() => {
+$('#encrypt_form').submit(e => {
+	e.preventDefault();
 	let userEncryptionKey = getUserEncryptionKey("encrypt_key_list_2");
 	let userInput = $("#plain_input").val();
+	console.log(userEncryptionKey, userInput);
 	let outPut = userInput.split("").map(char => {
 		return getEncryptedCharacterValue(char, userEncryptionKey);
 	});
@@ -99,7 +101,8 @@ $('#encrypt_button_2').click(() => {
 
 });
 
-$("#decrypt_button").click(()=> {
+$("#decrypt_form").submit(e => {
+	e.preventDefault();
 	let userEncryptionKey = getUserEncryptionKey("decrypt_key_list");
 	let userInput = $("#encrypted_input").val();
 	let outPut = userInput.split("").map(char => {
