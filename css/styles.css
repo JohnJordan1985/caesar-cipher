@@ -1,6 +1,16 @@
+
 /* Typography */
 p, legend {
 	font-size: 0.75rem;
+}
+
+/* Layout */
+textarea, form, fieldset {
+	max-width: 300px;
+}
+.block-center {
+	display: block;
+	margin: auto;
 }
 nav {
 	position: fixed;

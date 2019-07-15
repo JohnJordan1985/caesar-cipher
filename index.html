@@ -134,12 +134,12 @@
 		<section id="encrypt" class="encryption">
 			<div class="box-shadow-3 -fake -blck">&nbsp;</div>
 			<h2>Encryption</h2>
-			<p>Please enter the text you want to encrypt, and select a key to encrypt it.</p>
+			<!-- <p>Please enter the text you want to encrypt, and select a key to encrypt it.</p> -->
 
 			<section id="input_section_textfield">
 				<h3 class="">Input</h3>
 				<form action="#" id="encrypt_form">
-					<textarea name="plain-input" id="plain_input" cols="35" rows="5"></textarea>
+					<textarea name="plain-input" id="plain_input" cols="35" rows="5" placeholder="Type the message you want to encrypt here..."></textarea>
 					<fieldset>
 						<legend>&nbsp;Select a cipher key to <em>encrypt</em> your message&nbsp;</legend>			
 						<select name="encrypt-keys" id="encrypt_key_list_2"></select>			
@@ -152,9 +152,7 @@
 			<section>
 				<h3>Output</h3>
 				<fieldset>
-					<legend>			
-						Your <em>encrypted</em> message:			
-					</legend>
+					<legend class="block-center">&nbsp;Your <em>encrypted</em> message:&nbsp;</legend>
 					<output id="encrypted_output_2" name="encrypted-output" for="plain_input encrypt_key_list_2" form="encrypt_form_textfield"></output>
 
 				</fieldset>
@@ -166,11 +164,11 @@
 			<div class="box-shadow-3 -fake -white">&nbsp;</div>
 
 			<h2 class="">Decryption</h2>
-			<p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p>
+			<!-- <p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p> -->
 			<section>
 				<h3 class="">Input</h3>
 				<form action="#" id="decrypt_form">
-				<textarea name="encrypted-input" id="encrypted_input" cols="35" rows="5"></textarea>
+				<textarea name="encrypted-input" id="encrypted_input" cols="35" rows="5" placeholder="Paste the cipher text you want to decrypt here..."></textarea>
 				<fieldset id="">
 					<legend>&nbsp;Select the key used to <i>encrypt</i> the message&nbsp;</legend>
 					<select name="decrypt-keys" id="decrypt_key_list"></select>
@@ -183,7 +181,7 @@
 			<section id="decrypted_output_section">
 				<h3 class="">Output</h3>
 				<fieldset class="output-group">
-					<legend>Your <em>de-crypted</em> message: </legend>
+					<legend class="block-center">&nbsp;Your <em>de-crypted</em> message:&nbsp;</legend>
 					<output id="decrypted_output" name="decrypted-output" for="encrypted_input decrypt_key_list" form="decrypt_form"></output>
 				</fieldset>
 			</section>			

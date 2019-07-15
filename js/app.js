@@ -24,8 +24,6 @@ function getUserEncryptionKey(elementID = 'encrypt_key_list'){
 }
 
 
-
-
 function addEncryptionKeysDOM(listOfCoPrimes) {
 	let docFrag = document.createDocumentFragment();
 	decorateDocFragEncryptionKeys(docFrag, listOfCoPrimes);
@@ -83,11 +81,11 @@ $("#copy_encrypted").click(() => {
 	$virtualTextArea.remove();
 });
 
-$('#encrypt_button').click(() => {
-	let userEncryptionKey = getUserEncryptionKey();
-	let $listOfUserInputs = $(getNewListOfUserInputs());
-	setOutputElements($listOfUserInputs, userEncryptionKey);
-});
+// $('#encrypt_button').click(() => {
+// 	let userEncryptionKey = getUserEncryptionKey();
+// 	let $listOfUserInputs = $(getNewListOfUserInputs());
+// 	setOutputElements($listOfUserInputs, userEncryptionKey);
+// });
 
 $('#encrypt_form').submit(e => {
 	e.preventDefault();
