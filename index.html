@@ -36,7 +36,6 @@
 		}
 		fieldset {
 			display: block;
-			margin: 1rem;
 			padding-left: 13px; /* Has 2px border */
 		}
 		input[type="text"], output[type="text"] {
@@ -58,9 +57,7 @@
 
 		button {
 			margin: 1rem auto 1.5rem;
-		}
-
-		
+		}		
 
 		.output-group {
 			display: inline-block;
@@ -85,16 +82,7 @@
 			display: block;
 		}
 
-		.table-cell {
-			display: table-cell;
-		}
-
-		.table-cell.-v-align-middle {
-			vertical-align: middle;
-		}
-		.h-100 {
-			height: 100%;
-		}
+		
 	</style>
 </head>
 <body class="">
@@ -136,11 +124,13 @@
 			<h2>Encryption</h2>
 			<!-- <p>Please enter the text you want to encrypt, and select a key to encrypt it.</p> -->
 
-			<section id="input_section_textfield">
-				<h3 class="">Input</h3>
+			<section id="input_section_textfield">								
+				<div class="table-row">
+					<h3 class="table-cell">Input</h3>
+				</div>				
 				<form action="#" id="encrypt_form">
 					<textarea name="plain-input" id="plain_input" cols="35" rows="5" placeholder="Type the message you want to encrypt here..."></textarea>
-					<fieldset>
+					<fieldset class="cipher-key">
 						<legend>&nbsp;Select a cipher key to <em>encrypt</em> your message&nbsp;</legend>			
 						<select name="encrypt-keys" id="encrypt_key_list_2"></select>			
 						<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
@@ -166,10 +156,12 @@
 			<h2 class="">Decryption</h2>
 			<!-- <p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p> -->
 			<section>
-				<h3 class="">Input</h3>
+				<div class="table-row">
+					<h3 class="table-cell">Input</h3>					
+				</div>
 				<form action="#" id="decrypt_form">
 				<textarea name="encrypted-input" id="encrypted_input" cols="35" rows="5" placeholder="Paste the cipher text you want to decrypt here..."></textarea>
-				<fieldset id="">
+				<fieldset id="" class="cipher-key">
 					<legend>&nbsp;Select the key used to <i>encrypt</i> the message&nbsp;</legend>
 					<select name="decrypt-keys" id="decrypt_key_list"></select>
 					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
