@@ -123,16 +123,22 @@
 			<div class="box-shadow-3 -fake -blck">&nbsp;</div>
 			<h2>Encryption</h2>
 			<!-- <p>Please enter the text you want to encrypt, and select a key to encrypt it.</p> -->
-
 			<section id="input_section_textfield">										
 				<form action="#" id="encrypt_form">
-					<textarea name="plain-input" id="plain_input" cols="35" rows="5" placeholder="Type the message you want to encrypt here..."></textarea>
+					<textarea name="plain-input" id="plain_input" name="plain-input" cols="35" rows="5" placeholder="Type the message you want to encrypt here..." required ></textarea>
 					<fieldset class="cipher-key">
-						<legend>&nbsp;Select a cipher key to <em>encrypt</em> your message&nbsp;</legend>			
+						<legend class="block-center">&nbsp;Select a cipher key to <em>encrypt</em> your message&nbsp;</legend>			
 						<select name="encrypt-keys" id="encrypt_key_list_2"></select>			
 						<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 						<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
-						<input id="encrypt_button_2" class="button light_bg" type="submit" value="Encrypt" onclick="this.blur()"/>
+						<div>
+							<span class="animated-border">
+							<input id="encrypt_button_2" class="button light_bg" type="submit"  onclick="this.blur()" />							
+								
+							</span>
+						</div>
+						
+							
 					</fieldset>
 				</form>
 			</section>
@@ -154,13 +160,13 @@
 			<!-- <p>Please enter the text you want to decrypt, and select the key that was used to encrypt it.</p> -->
 			<section>				
 				<form action="#" id="decrypt_form">
-				<textarea name="encrypted-input" id="encrypted_input" cols="35" rows="5" placeholder="Paste the cipher text you want to decrypt here..."></textarea>
+				<textarea name="encrypted-input" id="encrypted_input" name="cipher-input" cols="35" rows="5" placeholder="Paste the cipher text you want to decrypt here..." required></textarea>
 				<fieldset id="" class="cipher-key">
-					<legend>&nbsp;Select the key used to <i>encrypt</i> the message&nbsp;</legend>
+					<legend class="block-center">&nbsp;Select the key used to <i>encrypt</i> the message&nbsp;</legend>
 					<select name="decrypt-keys" id="decrypt_key_list"></select>
 					<!-- <label for="User_cipher_modulus">Cipher Modulus: </label>
 					<input id="user_cipher_modulus" type="number" name="cipher-modulus" min="1" max="99"> -->
-					<input id="decrypt_button"class="button -bg_dark"  type="submit" value="Decrypt" onclick="this.blur()"/>
+					<input id="decrypt_button"class="button -bg_dark"  type="submit" value="Decrypt" onclick="this.blur()"  />
 				</fieldset> 
 			</form>
 			</section>
@@ -173,7 +179,7 @@
 			</section>			
 		</section>
 
-		<div class="splash-screen bg-gradient -split ">
+		<div class="splash-screen bg-gradient -split">
 			<div class="table-cell -v-align-middle h-100">
 				<a href="#encrypt" class="text-black">Encrypt</a> <span class="bg-white text-black">or</span><a href="#decrypt" class="text-white">Decrypt</a>				
 			</div>
