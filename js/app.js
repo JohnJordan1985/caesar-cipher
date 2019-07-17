@@ -70,6 +70,8 @@ addEncryptionKeysDOM(getCoPrimes(27));
 
 let $userInputChar1 = $("#user_char_1");
 let $outputChar1 = $("#output_char_1");
+let $encryptButton = $("#encrypt_button");
+let $decryptButton = $("#decrypt_button");
 
 
 $("#copy_encrypted").click(() => {
@@ -96,7 +98,8 @@ $('#encrypt_form').submit(e => {
 		return getEncryptedCharacterValue(char, userEncryptionKey);
 	});
 	$("#encrypted_output_2").text(outPut.join(""));
-
+	console.log($(this));
+	$encryptButton.blur();
 });
 
 $("#decrypt_form").submit(e => {
@@ -107,4 +110,5 @@ $("#decrypt_form").submit(e => {
 		return getDecryptedCharacterValue(char, userEncryptionKey);
 	});
 	$("#decrypted_output").val(outPut.join(""));
+	$decryptButton.blur();
 });
