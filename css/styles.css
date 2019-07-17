@@ -1,9 +1,15 @@
 :root {
+	--brand-red: #ef0606;
 	--darker-red: #BD0000;
+	--text-gray: #666666;
 }
 /* Typography */
 p, legend {
 	font-size: 0.75rem;
+}
+
+a,p {
+	font-color: var(--text-gray);
 }
 
 .text-white{
@@ -70,7 +76,7 @@ select {
 	font-size: 1rem;
 	font-weight: 300;
 	display: block;
-	background-color: #ef0606;
+	background-color: var(--brand-red);
 	margin: 0 auto;
  	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -162,7 +168,6 @@ select {
 }
 
 /* Splash Screen */
-
 .splash-screen a {
 	font-size: 3.5rem;
 	text-decoration: none;
@@ -177,14 +182,11 @@ select {
 	background-color: white;
 }
 
-
-
 /* Tab Navigation */
 
 #encrypt, #decrypt {
 	display: none; /* On mobile screens, poor UX with toggling 'visibility */
 }
-
 
 #encrypt:target, #decrypt:target {
 	display: block;
@@ -193,6 +195,21 @@ select {
 #encrypt:target ~ .splash-screen, #decrypt:target ~ .splash-screen {
 	height:0;
 	top: -200px;
+}
+
+.tab-navigation {
+	font-size: 1.25rem;	
+	text-decoration: none;
+	color: var(--text-gray);
+}
+
+.tab-navigation.active {
+	color: var(--brand-red);
+	text-decoration: underline;
+}
+
+.tab-navigation:hover, .tab-navigation:focus {
+	text-decoration: underline;
 }
 
 @media screen and (min-width: 786px ) {

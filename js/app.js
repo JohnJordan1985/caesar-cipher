@@ -112,3 +112,15 @@ $("#decrypt_form").submit(e => {
 	$("#decrypted_output").val(outPut.join(""));
 	$decryptButton.blur();
 });
+
+$("#tab_encrypt, #tab_decrypt").click(function() {
+	$.each($(".tab-navigation"), (index, elem) =>{
+		$(elem).removeClass("active");
+	});
+	$(this).addClass("active");
+});
+
+$("[href$='crypt']").click(function(){
+	let target = "#tab_" + $(this).attr("href").slice(1);
+	$(target).addClass("active"); //trigger correct link styling
+});
