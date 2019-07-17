@@ -6,6 +6,14 @@ p, legend {
 	font-size: 0.75rem;
 }
 
+.text-white{
+	color: white;
+}
+
+.text-black {
+	color:black;
+}
+
 /* Layout */
 h2 {
 	margin-bottom: 1.5rem
@@ -144,6 +152,24 @@ select {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 
+/* Splash Screen */
+
+.splash-screen a {
+	font-size: 3.5rem;
+	text-decoration: none;
+}
+
+.splash-screen span {
+	padding: 0.5rem;
+	border-radius: 50%;
+}
+
+.bg-white {
+	background-color: white;
+}
+
+
+
 /* Tab Navigation */
 
 #encrypt, #decrypt {
@@ -157,7 +183,7 @@ select {
 
 #encrypt:target ~ .splash-screen, #decrypt:target ~ .splash-screen {
 	height:0;
-	top: -100px;
+	top: -200px;
 }
 
 @media screen and (min-width: 786px ) {
