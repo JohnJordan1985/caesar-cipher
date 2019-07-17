@@ -113,14 +113,34 @@ $("#decrypt_form").submit(e => {
 	$decryptButton.blur();
 });
 
-$("#tab_encrypt, #tab_decrypt").click(function() {
+function $clearOldActives (){
 	$.each($(".tab-navigation"), (index, elem) =>{
 		$(elem).removeClass("active");
 	});
+}
+
+function $markCorrectTabNav() {
+	let ind = window.location.toString().indexOf("#");
+	let target = "#tab_" + window.location.toString().slice(ind+1);
+	$clearOldActives();
+	$(target).addClass("active");
+}
+
+$("#tab_encrypt, #tab_decrypt").click(function() {
+	$clearOldActives();
 	$(this).addClass("active");
 });
 
 $("[href$='crypt']").click(function(){
 	let target = "#tab_" + $(this).attr("href").slice(1);
+	$clearOldActives();
 	$(target).addClass("active"); //trigger correct link styling
 });
+
+$(document).ready(() => {
+	 $markCorrectTabNav();
+});
+
+$(window).on("hashchange", () => {
+	 $markCorrectTabNav();
+})
