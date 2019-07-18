@@ -102,9 +102,6 @@ select {
 	box-shadow: 0 1px 3px rgba(255,255,255,0.24), 0 1px 2px rgba(255,255,255,0.48);
 }
 
-.button.-bg_dark:focus {
-	box-shadow:none;
-}
 
 .button:hover, .button:focus {
   	box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.22);	
@@ -113,6 +110,10 @@ select {
 .button.-bg_dark:hover {
 	box-shadow: 0 10px 20px rgba(255,255,255,0.25), 0 6px 6px rgba(255,255,255,0.22);
 }  
+
+.button.-bg_dark:focus {
+	box-shadow:none;
+}
 
 .button:active, .button.-bg_dark:active {
   	box-shadow: none;
