@@ -72,10 +72,11 @@ let $userInputChar1 = $("#user_char_1");
 let $outputChar1 = $("#output_char_1");
 let $encryptButton = $("#encrypt_button");
 let $decryptButton = $("#decrypt_button");
+let $encryptedOutput = $("#encrypted_output");
 
 
 $("#copy_encrypted").click(() => {
-	let $output = $("#encrypted_output_2");
+	let $output = $("#encrypted_output");
 	$output.append("<input id='virtual_input' type='text' style='position: absolute; top: -10000px; width: 0; height: 0' />"); //since output element is not focusable => cannot select it, so create this 'virtual' element
 	let $virtualTextArea = $output.children().last(); 
 	$virtualTextArea.val($output.text()).select(); 
@@ -97,9 +98,11 @@ $('#encrypt_form').submit(e => {
 	let outPut = userInput.split("").map(char => {
 		return getEncryptedCharacterValue(char, userEncryptionKey);
 	});
-	$("#encrypted_output_2").text(outPut.join(""));
+	$("#encrypted_output").text(outPut.join(""));
 	console.log($(this));
-	$encryptButton.blur();
+	//$encryptButton.blur();
+	$encryptedOutput.focus();
+
 });
 
 $("#decrypt_form").submit(e => {
